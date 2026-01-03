@@ -1,0 +1,53 @@
+{
+  "meta": {
+    "version": 1,
+    "language": "en",
+    "framework": "CEFR",
+    "levels": ["A1", "A2", "B1", "B2"]
+  },
+  "questions": [
+    {"id":"A1-G-001","level":"A1","type":"grammar","question":"Choose the correct article: ___ apple is red.","options":["A","An","The","No article"],"answerIndex":1,"explanation":"We use 'an' before words that start with a vowel sound."},
+    {"id":"A1-G-002","level":"A1","type":"grammar","question":"She ___ from Mexico.","options":["are","is","be","am"],"answerIndex":1,"explanation":"Use 'is' with she/he/it."},
+    {"id":"A1-V-003","level":"A1","type":"vocab","question":"Which word means the opposite of 'cold'?","options":["hot","wet","cool","soft"],"answerIndex":0,"explanation":"Hot is the antonym of cold."},
+    {"id":"A1-V-004","level":"A1","type":"vocab","question":"Find the word for a place to buy bread.","options":["library","bakery","station","office"],"answerIndex":1,"explanation":"A bakery sells bread and pastries."},
+    {"id":"A1-G-005","level":"A1","type":"grammar","question":"We ___ soccer on Sundays.","options":["play","playing","plays","played"],"answerIndex":0,"explanation":"Use the base form with 'we' for present habits."},
+    {"id":"A1-V-006","level":"A1","type":"vocab","question":"Choose the day that comes after Tuesday.","options":["Monday","Wednesday","Friday","Sunday"],"answerIndex":1,"explanation":"Wednesday follows Tuesday."},
+    {"id":"A1-R-007","level":"A1","type":"reading","passage":"Maria likes coffee. She drinks a cup every morning before work.","question":"What does Maria drink every morning?","options":["Tea","Milk","Coffee","Juice"],"answerIndex":2,"explanation":"The passage states Maria drinks coffee."},
+    {"id":"A1-R-008","level":"A1","type":"reading","passage":"Tom has a small dog. The dog is brown and loves to play in the park.","question":"Where does the dog like to play?","options":["In the house","In the park","At school","On the bus"],"answerIndex":1,"explanation":"The passage says the dog loves to play in the park."},
+    {"id":"A1-G-009","level":"A1","type":"grammar","question":"Choose the correct verb: They ___ happy today.","options":["am","is","are","be"],"answerIndex":2,"explanation":"Use 'are' with they."},
+    {"id":"A1-V-010","level":"A1","type":"vocab","question":"Select the correct preposition: The book is ___ the table.","options":["under","fast","late","tall"],"answerIndex":0,"explanation":"Under indicates position below."},
+
+    {"id":"A2-G-011","level":"A2","type":"grammar","question":"If it ___ tomorrow, we will stay home.","options":["rains","rain","rained","raining"],"answerIndex":0,"explanation":"First conditional uses present simple after 'if'."},
+    {"id":"A2-V-012","level":"A2","type":"vocab","question":"Choose the phrasal verb that means 'continue'.","options":["give up","carry on","take off","pick up"],"answerIndex":1,"explanation":"'Carry on' means continue."},
+    {"id":"A2-R-013","level":"A2","type":"reading","passage":"Sara is learning to cook. She watches videos and tries one new recipe each week.","question":"How often does Sara try a new recipe?","options":["Every day","Each week","Once a month","Never"],"answerIndex":1,"explanation":"The passage says one new recipe each week."},
+    {"id":"A2-G-014","level":"A2","type":"grammar","question":"We have lived in Lima ___ 2018.","options":["for","since","at","by"],"answerIndex":1,"explanation":"'Since' is used with a starting point in time."},
+    {"id":"A2-V-015","level":"A2","type":"vocab","question":"Pick the word that means 'borrowed money from a bank'.","options":["loan","salary","budget","bonus"],"answerIndex":0,"explanation":"A loan is money you borrow and must repay."},
+    {"id":"A2-R-016","level":"A2","type":"reading","passage":"The museum opens at 9 a.m. and closes at 6 p.m. Tickets are cheaper after 4 p.m.","question":"When are tickets cheaper?","options":["Before 9 a.m.","After 4 p.m.","At noon","After 7 p.m."],"answerIndex":1,"explanation":"Tickets are cheaper after 4 p.m."},
+    {"id":"A2-G-017","level":"A2","type":"grammar","question":"She asked me if I ___ finish the report by Friday.","options":["can","could","am","will"],"answerIndex":1,"explanation":"Reported speech often backshifts 'can' to 'could'."},
+    {"id":"A2-V-018","level":"A2","type":"vocab","question":"Select the best word: The movie was very ___; I almost fell asleep.","options":["exciting","boring","funny","short"],"answerIndex":1,"explanation":"Boring matches the idea of feeling sleepy."},
+    {"id":"A2-G-019","level":"A2","type":"grammar","question":"There aren’t ___ chairs in the room.","options":["some","a","many","any"],"answerIndex":3,"explanation":"Use 'any' in negative plural sentences."},
+    {"id":"A2-V-020","level":"A2","type":"vocab","question":"Which expression means 'on time'?","options":["in advance","behind schedule","punctual","last minute"],"answerIndex":2,"explanation":"Punctual means happening at the agreed time."},
+
+    {"id":"B1-G-021","level":"B1","type":"grammar","question":"By the time we arrived, the film ___ already started.","options":["has","had","have","was"],"answerIndex":1,"explanation":"Past perfect (had started) shows earlier action."},
+    {"id":"B1-V-022","level":"B1","type":"vocab","question":"Choose the best synonym for 'improve'.","options":["decline","enhance","ignore","delay"],"answerIndex":1,"explanation":"Enhance means to make something better."},
+    {"id":"B1-R-023","level":"B1","type":"reading","passage":"Lina volunteers at the shelter every Saturday, walking dogs and cleaning their kennels.","question":"What does Lina do at the shelter?","options":["Feeds cats","Walks dogs","Teaches classes","Repairs fences"],"answerIndex":1,"explanation":"The passage states she walks dogs and cleans kennels."},
+    {"id":"B1-G-024","level":"B1","type":"grammar","question":"If I had more time, I ___ learn another language.","options":["will","would","can","did"],"answerIndex":1,"explanation":"Second conditional uses would + base verb."},
+    {"id":"B1-V-025","level":"B1","type":"vocab","question":"Select the word closest to 'reliable'.","options":["trustworthy","temporary","awkward","minor"],"answerIndex":0,"explanation":"Reliable is similar to trustworthy."},
+    {"id":"B1-R-026","level":"B1","type":"reading","passage":"During the workshop, participants build a simple robot using recycled materials and basic circuits.","question":"What do participants build?","options":["A wooden chair","A simple robot","A painting","A phone app"],"answerIndex":1,"explanation":"The passage says participants build a simple robot."},
+    {"id":"B1-G-027","level":"B1","type":"grammar","question":"I regret ___ my keys at home.","options":["to leave","leaving","left","leave"],"answerIndex":1,"explanation":"Regret is followed by the gerund when talking about a past action."},
+    {"id":"B1-V-028","level":"B1","type":"vocab","question":"Fill the gap: Her presentation was ___; everyone understood the message.","options":["confusing","clear","noisy","rare"],"answerIndex":1,"explanation":"Clear describes something easy to understand."},
+    {"id":"B1-G-029","level":"B1","type":"grammar","question":"We should have left earlier, ___ we missed the bus.","options":["but","because","so","although"],"answerIndex":0,"explanation":"'But' contrasts missing the bus with what we should have done."},
+    {"id":"B1-V-030","level":"B1","type":"vocab","question":"Choose the correct collocation: pay ___ attention.","options":["heavy","close","strong","tight"],"answerIndex":1,"explanation":"The natural collocation is 'pay close attention'."},
+
+    {"id":"B2-G-031","level":"B2","type":"grammar","question":"Hardly ___ the door when the alarm went off.","options":["had I closed","I had closed","I closed","I have closed"],"answerIndex":0,"explanation":"Inversion is used after 'hardly' in this structure."},
+    {"id":"B2-V-032","level":"B2","type":"vocab","question":"Select the word that best fits: The company launched an ___ campaign to reach younger users.","options":["immersive","immersion","immerse","immersed"],"answerIndex":0,"explanation":"An adjective is needed before 'campaign'; 'immersive' fits."},
+    {"id":"B2-R-033","level":"B2","type":"reading","passage":"Although the conference was virtual, networking sessions allowed attendees to meet mentors and peers in small breakout rooms.","question":"How did attendees connect with others?","options":["Through breakout rooms","Only by email","They could not connect","By mailing letters"],"answerIndex":0,"explanation":"Networking happened in small breakout rooms."},
+    {"id":"B2-G-034","level":"B2","type":"grammar","question":"The novel, ___ won several awards, was adapted into a film.","options":["that","what","which","whose"],"answerIndex":2,"explanation":"Non-defining relative clause uses 'which'."},
+    {"id":"B2-V-035","level":"B2","type":"vocab","question":"Choose the best option: He spoke with such ___ that everyone paid attention.","options":["hesitation","clarity","confusion","silence"],"answerIndex":1,"explanation":"Clarity makes people pay attention."},
+    {"id":"B2-R-036","level":"B2","type":"reading","passage":"Researchers observed that bees communicate complex routes to food sources by dancing in precise patterns inside the hive.","question":"How do bees share information about food?","options":["By singing","By flying together","By dancing patterns","By leaving notes"],"answerIndex":2,"explanation":"They dance in patterns to show routes."},
+    {"id":"B2-G-037","level":"B2","type":"grammar","question":"No sooner had we sat down ___ the lights went out.","options":["when","that","and","then"],"answerIndex":0,"explanation":"Use 'than/when' with inversion; 'when' fits here."},
+    {"id":"B2-V-038","level":"B2","type":"vocab","question":"Pick the best word: The manager praised her for her ___ to detail.","options":["attention","attendance","attentive","attending"],"answerIndex":0,"explanation":"'Attention to detail' is the correct phrase."},
+    {"id":"B2-G-039","level":"B2","type":"grammar","question":"He wouldn’t have missed the flight if he ___ earlier.","options":["left","had left","has left","would leave"],"answerIndex":1,"explanation":"Third conditional uses past perfect in the if-clause."},
+    {"id":"B2-V-040","level":"B2","type":"vocab","question":"Which word best replaces 'very important' in formal writing?","options":["crucial","tiny","casual","distant"],"answerIndex":0,"explanation":"Crucial means extremely important."}
+  ]
+}
