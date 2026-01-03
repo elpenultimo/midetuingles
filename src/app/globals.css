@@ -15,6 +15,12 @@
   --success: #4ade80;
   --danger: #f87171;
   --border: rgba(124, 140, 255, 0.25);
+  --level-a1: 120, 203, 164;
+  --level-a2: 124, 185, 229;
+  --level-b1: 226, 191, 104;
+  --level-b2: 229, 156, 114;
+  --level-c1: 169, 149, 232;
+  --level-c2: 217, 118, 136;
 }
 
 * {
@@ -161,6 +167,32 @@ main {
   font-size: 0.85rem;
   letter-spacing: -0.01em;
 }
+
+.badge.level-badge {
+  background: rgba(var(--level-color, 124, 140, 255), 0.16);
+  border: 1px solid rgba(var(--level-color, 124, 140, 255), 0.32);
+  color: #f7f7ff;
+  font-weight: 600;
+  transition: background 160ms ease, border-color 160ms ease, box-shadow 160ms ease;
+}
+
+.badge.level-badge:hover {
+  background: rgba(var(--level-color, 124, 140, 255), 0.26);
+  border-color: rgba(var(--level-color, 124, 140, 255), 0.42);
+  box-shadow: 0 10px 32px rgba(var(--level-color, 124, 140, 255), 0.12);
+}
+
+.badge.level-badge:focus-visible {
+  outline: 2px solid rgba(var(--level-color, 124, 140, 255), 0.7);
+  outline-offset: 3px;
+}
+
+.badge.level-a1 { --level-color: var(--level-a1); }
+.badge.level-a2 { --level-color: var(--level-a2); }
+.badge.level-b1 { --level-color: var(--level-b1); }
+.badge.level-b2 { --level-color: var(--level-b2); }
+.badge.level-c1 { --level-color: var(--level-c1); }
+.badge.level-c2 { --level-color: var(--level-c2); }
 
 .grid {
   display: grid;
