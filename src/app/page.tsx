@@ -1,5 +1,9 @@
 import Link from 'next/link';
 import { LEVELS } from '@/lib/testEngine';
+import HowItWorks from '@/components/HowItWorks';
+import QuickInstructions from '@/components/QuickInstructions';
+import LevelCards from '@/components/LevelCards';
+import FAQAccordion from '@/components/FAQAccordion';
 
 const highlights = [
   '⚡ Rápido y directo',
@@ -40,6 +44,10 @@ export default function LandingPage() {
           ))}
         </div>
       </div>
+      <HowItWorks />
+      <QuickInstructions />
+      <LevelCards />
+      <FAQAccordion />
     </div>
   );
 }
