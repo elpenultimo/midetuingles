@@ -8,7 +8,7 @@ import FAQAccordion from '@/components/FAQAccordion';
 const highlights = [
   '⚡ Rápido y directo',
   '📱 Optimizado para móvil',
-  '🎯 Niveles A1 a B2'
+  '🎯 Niveles A1 a C2'
 ];
 
 export default function LandingPage() {

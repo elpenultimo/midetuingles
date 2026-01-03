@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import LevelCards from '@/components/LevelCards';
 
 export const metadata: Metadata = {
-  title: 'Niveles de inglés A1–B2 | Mide tu inglés',
+  title: 'Niveles de inglés A1–C2 | Mide tu inglés',
   description: 'Conoce qué significa cada nivel de inglés según el MCER y descubre cómo interpretamos tu resultado.'
 };
 
@@ -11,7 +11,7 @@ export default function NivelesPage() {
     <div className="container" style={{ padding: '2rem 1.5rem 3rem' }}>
       <div className="card" style={{ marginBottom: '1.5rem' }}>
         <div className="eyebrow">Guía</div>
-        <h1 style={{ marginTop: '0.4rem' }}>Niveles de inglés (A1–B2)</h1>
+        <h1 style={{ marginTop: '0.4rem' }}>Niveles de inglés (A1–C2)</h1>
         <p>
           Usamos los niveles del Marco Común Europeo de Referencia (MCER) para estimar dónde estás hoy. El
           objetivo es ubicarte rápido y darte una idea clara de lo que ya dominas y lo que puedes reforzar.
