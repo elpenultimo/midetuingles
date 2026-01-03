@@ -1,8 +1,8 @@
 :root {
-  --bg: #0e122a;
-  --bg-alt: #141b3d;
-  --card: rgba(20, 27, 61, 0.72);
-  --card-strong: rgba(20, 27, 61, 0.9);
+  --bg: #1b2250;
+  --bg-alt: #141a3a;
+  --card: rgba(15, 20, 44, 0.78);
+  --card-strong: rgba(15, 20, 44, 0.94);
   --text: #e5e7ff;
   --muted: #8a90c2;
   --text-soft: #b6bce6;
