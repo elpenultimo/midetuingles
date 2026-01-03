@@ -38,9 +38,14 @@ export default function LandingPage() {
         </Link>
         <div className="meta-row" style={{ justifyContent: 'center', marginTop: '1.25rem' }}>
           {LEVELS.map((level) => (
-            <span key={level} className="badge">
+            <Link
+              key={level}
+              href={`/test/${level.toLowerCase()}`}
+              className="badge"
+              aria-label={`Ir al test nivel ${level}`}
+            >
               Nivel {level}
-            </span>
+            </Link>
           ))}
         </div>
       </div>
