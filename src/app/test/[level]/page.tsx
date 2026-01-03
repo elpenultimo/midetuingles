@@ -162,7 +162,7 @@ export default function LevelTestPage({ params }: PageProps) {
     <div className="container" style={{ paddingTop: '1.5rem', paddingBottom: '2rem' }}>
       <div className="meta-row">
         <div className="badge">Nivel {levelParam}</div>
-        <div className="badge">Mínimo para aprobar: 70%</div>
+        <div className="badge">Objetivo: 70% para subir de nivel</div>
       </div>
       <ProgressBar current={currentIndex} total={questions.length} />
       <QuestionCard

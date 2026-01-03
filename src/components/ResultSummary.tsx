@@ -14,10 +14,13 @@ export function ResultSummary({ resultsByLevel, onRetry }: Props) {
       <div className="meta-row" style={{ justifyContent: 'space-between', alignItems: 'center' }}>
         <div>
           <p style={{ marginBottom: '0.25rem', color: 'var(--muted)' }}>Nivel estimado</p>
-          <h2 style={{ marginBottom: 0 }}>{finalLevel === 'A1_in_progress' ? 'A1 en progreso' : finalLevel}</h2>
+          <h2 style={{ marginBottom: '0.35rem' }}>{finalLevel === 'A1_in_progress' ? 'A1 en progreso' : finalLevel}</h2>
+          <p style={{ marginBottom: 0, color: 'var(--text-soft)' }}>
+            ¡Bien hecho! Mantén el ritmo y vuelve a intentarlo para seguir subiendo.
+          </p>
         </div>
         <button className="button" type="button" onClick={onRetry}>
-          Reintentar
+          Repetir test
         </button>
       </div>
       <table className="table" aria-label="Resumen de resultados">
