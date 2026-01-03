@@ -19,14 +19,6 @@ interface PageProps {
   params: { level: string };
 }
 
-export function generateMetadata({ params }: PageProps) {
-  const level = params.level?.toUpperCase();
-  if (!LEVELS.includes(level as Level)) return {};
-  return {
-    title: `Test nivel ${level} | Mide tu inglés`,
-    description: `Completa las preguntas del nivel ${level} y avanza si apruebas con 70% o más.`
-  };
-}
 
 function isValidLevel(level: string): level is Level {
   return LEVELS.includes(level as Level);
