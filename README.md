@@ -1,18 +1,24 @@
-# MideTuInglés.com
+# Mide tu inglés
 
-Plataforma web gratuita para medir el nivel de inglés mediante tests rápidos,
-sin registro y con resultados claros según el Marco Común Europeo (A1–C2).
+Aplicación Next.js 14 (App Router) para evaluar tu nivel de inglés de manera rápida y sin registro. Incluye niveles A1-B2, preguntas originales y resultados inmediatos con barra de progreso y persistencia en localStorage.
 
-## Objetivo
-Permitir que cualquier persona conozca su nivel de inglés en pocos minutos.
+## Estructura principal
+- `src/app/page.tsx`: landing con CTA.
+- `src/app/test/page.tsx`: redirección a A1.
+- `src/app/test/[level]/page.tsx`: flujo de preguntas por nivel.
+- `src/app/resultado/page.tsx`: resumen final.
+- `src/components`: tarjetas, barra de progreso y resumen.
+- `src/lib`: motor de calificación y utilidades de storage.
+- `src/data/questions.en.cefr.json`: banco de preguntas (listo para ampliar a 20 por nivel).
 
-## Características planeadas
-- Tests por nivel (A1, A2, B1, B2, C1)
-- Sin login
-- Resultados inmediatos con porcentaje
-- Diseño claro y rápido
-- Optimizado para SEO
+## Ejecutar localmente
+```bash
+npm install
+npm run dev
+```
+Luego visita `http://localhost:3000`.
 
-## Tecnologías
-- HTML / CSS / JavaScript (estático)
-- Despliegue en GitHub Pages o Vercel
+## Notas
+- Sin autenticación ni registro.
+- Usa localStorage para guardar intentos, mejores puntajes y última fecha.
+- Optimizado para mobile-first y con títulos/meta por nivel para SEO básico.
