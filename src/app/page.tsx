@@ -41,7 +41,7 @@ export default function LandingPage() {
             <Link
               key={level}
               href={`/test/${level.toLowerCase()}`}
-              className="badge"
+              className={`badge level-badge level-${level.toLowerCase()}`}
               aria-label={`Ir al test nivel ${level}`}
             >
               Nivel {level}
