@@ -37,6 +37,7 @@ export default function TestLevelClient({ level }: TestLevelClientProps) {
   const [attempt, setAttempt] = useState<AttemptState | null>(null);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [loading, setLoading] = useState(true);
+  const [showExitConfirm, setShowExitConfirm] = useState(false);
   const levelParam = level?.toUpperCase() as Level;
 
   useEffect(() => {
@@ -84,6 +85,8 @@ export default function TestLevelClient({ level }: TestLevelClientProps) {
 
   const answersForLevel = attempt.answersByLevel?.[levelParam] ?? [];
   const selectedAnswer = answersForLevel[currentIndex] ?? null;
+  const hasProgress =
+    currentIndex > 0 || answersForLevel.some((ans) => ans !== null && typeof ans !== 'undefined');
 
   const handleSelect = (idx: number) => {
     const newAnswers = [...answersForLevel];
@@ -157,8 +160,34 @@ export default function TestLevelClient({ level }: TestLevelClientProps) {
     router.replace('/test/a1');
   };
 
+  const handleExitRequest = () => {
+    if (!hasProgress) {
+      clearFromStorage(STORAGE_KEYS.ATTEMPT_STATE);
+      router.push('/');
+      return;
+    }
+
+    setShowExitConfirm(true);
+  };
+
+  const handleConfirmExit = () => {
+    clearFromStorage(STORAGE_KEYS.ATTEMPT_STATE);
+    setShowExitConfirm(false);
+    router.push('/');
+  };
+
+  const handleCancelExit = () => {
+    setShowExitConfirm(false);
+  };
+
   return (
     <div className="container" style={{ paddingTop: '1.5rem', paddingBottom: '2rem' }}>
+      <div style={{ marginBottom: '0.5rem' }}>
+        <button type="button" className="back-link" onClick={handleExitRequest}>
+          <span aria-hidden="true">←</span>
+          Inicio
+        </button>
+      </div>
       <div className="meta-row">
         <div className="badge">Nivel {levelParam}</div>
         <div className="badge">Mínimo para aprobar: 70%</div>
@@ -175,10 +204,31 @@ export default function TestLevelClient({ level }: TestLevelClientProps) {
         <button className="button secondary" type="button" onClick={handleReset}>
           Reiniciar intento
         </button>
-        <button className="button" type="button" disabled={selectedAnswer === null || typeof selectedAnswer === 'undefined'} onClick={handleNext}>
+        <button
+          className="button"
+          type="button"
+          disabled={selectedAnswer === null || typeof selectedAnswer === 'undefined'}
+          onClick={handleNext}
+        >
           {currentIndex === questions.length - 1 ? 'Terminar nivel' : 'Siguiente'}
         </button>
       </div>
+      {showExitConfirm && (
+        <div className="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="exit-confirm-title">
+          <div className="modal">
+            <h3 id="exit-confirm-title">¿Salir del test?</h3>
+            <p>Perderás tu progreso actual.</p>
+            <div className="modal-actions">
+              <button className="button secondary" type="button" onClick={handleCancelExit}>
+                Cancelar
+              </button>
+              <button className="button" type="button" onClick={handleConfirmExit}>
+                Salir
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

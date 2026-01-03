@@ -33,7 +33,7 @@ export default function LandingPage() {
             </div>
           ))}
         </div>
-        <Link href="/test" className="button" aria-label="Empezar test ahora">
+        <Link href="/test" className="button start-cta" aria-label="Empezar test ahora">
           Empezar ahora
         </Link>
         <div className="meta-row" style={{ justifyContent: 'center', marginTop: '1.25rem' }}>
