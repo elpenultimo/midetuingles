@@ -6,8 +6,12 @@
   --text: #e5e7ff;
   --muted: #8a90c2;
   --text-soft: #b6bce6;
+  --primary: #7c8cff;
+  --primaryHover: #8f9cff;
   --accent: #7c8cff;
   --accent-strong: #8f9cff;
+  --accentCyan: #4fd1ff;
+  --accentMagenta: #d96cff;
   --success: #4ade80;
   --danger: #f87171;
   --border: rgba(124, 140, 255, 0.25);
@@ -81,7 +85,7 @@ main {
   padding: 0.95rem 1.5rem;
   border-radius: 999px;
   border: 1px solid transparent;
-  background: linear-gradient(120deg, var(--accent), #9ca8ff);
+  background: linear-gradient(135deg, var(--primary), var(--accentMagenta));
   color: #0e122a;
   font-weight: 700;
   font-family: var(--font-space-grotesk, 'Space Grotesk'), 'Inter', system-ui, sans-serif;
@@ -98,7 +102,12 @@ main {
 
 .button:hover:not(:disabled) {
   transform: translateY(-1px);
-  box-shadow: 0 22px 50px rgba(143, 156, 255, 0.28);
+  box-shadow: 0 10px 30px rgba(124, 140, 255, 0.18), 0 0 0 1px rgba(143, 156, 255, 0.22);
+}
+
+.button:focus-visible {
+  outline: 2px solid var(--accentCyan);
+  outline-offset: 3px;
 }
 
 .button.secondary {
@@ -114,8 +123,9 @@ main {
   gap: 0.35rem;
   padding: 0.35rem 0.85rem;
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(124, 140, 255, 0.1);
   color: var(--text-soft);
+  border: 1px solid rgba(124, 140, 255, 0.22);
   font-size: 0.85rem;
   letter-spacing: -0.01em;
 }
@@ -168,7 +178,7 @@ p {
 
 .progress-fill {
   height: 100%;
-  background: linear-gradient(90deg, var(--accent), var(--success));
+  background: linear-gradient(90deg, var(--primary), var(--accentCyan), var(--success));
   transition: width 220ms ease;
 }
 
@@ -178,36 +188,42 @@ p {
   padding: 0.95rem 1.05rem;
   margin-bottom: 0.85rem;
   border-radius: 14px;
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.06);
   background: rgba(255, 255, 255, 0.03);
   color: var(--text);
   text-align: left;
   cursor: pointer;
-  transition: border-color 150ms ease, transform 150ms ease, box-shadow 150ms ease, background 150ms ease;
+  transition: border-color 180ms ease, transform 180ms ease, box-shadow 180ms ease, background 180ms ease;
 }
 
 .option:hover {
-  border-color: rgba(124, 140, 255, 0.35);
+  border-color: rgba(79, 209, 255, 0.35);
+  background: rgba(255, 255, 255, 0.05);
   transform: scale(1.01);
-  box-shadow: 0 12px 28px rgba(124, 140, 255, 0.12);
+  box-shadow: 0 12px 28px rgba(79, 209, 255, 0.12);
 }
 
 .option.selected {
-  border-color: rgba(124, 140, 255, 0.7);
-  background: linear-gradient(140deg, rgba(124, 140, 255, 0.22), rgba(20, 27, 61, 0.92));
-  box-shadow: 0 14px 32px rgba(124, 140, 255, 0.2);
+  border-color: rgba(143, 156, 255, 0.75);
+  background: linear-gradient(140deg, rgba(124, 140, 255, 0.18), rgba(217, 108, 255, 0.14));
+  box-shadow: 0 14px 32px rgba(124, 140, 255, 0.18);
 }
 
 .option.correct.selected {
-  border-color: rgba(74, 222, 128, 0.8);
-  background: linear-gradient(135deg, rgba(74, 222, 128, 0.15), rgba(20, 27, 61, 0.9));
-  box-shadow: 0 14px 32px rgba(74, 222, 128, 0.2);
+  border-color: rgba(74, 222, 128, 0.9);
+  background: linear-gradient(135deg, rgba(74, 222, 128, 0.14), rgba(20, 27, 61, 0.88));
+  box-shadow: 0 14px 32px rgba(74, 222, 128, 0.22);
 }
 
 .option.incorrect.selected {
-  border-color: rgba(248, 113, 113, 0.85);
-  background: linear-gradient(135deg, rgba(248, 113, 113, 0.18), rgba(20, 27, 61, 0.9));
-  box-shadow: 0 14px 32px rgba(248, 113, 113, 0.18);
+  border-color: rgba(248, 113, 113, 0.9);
+  background: linear-gradient(135deg, rgba(248, 113, 113, 0.14), rgba(20, 27, 61, 0.88));
+  box-shadow: 0 14px 32px rgba(248, 113, 113, 0.2);
+}
+
+.option:focus-visible {
+  outline: 2px solid var(--accentCyan);
+  outline-offset: 2px;
 }
 
 .pill {
@@ -217,9 +233,9 @@ p {
   font-size: 0.95rem;
   padding: 0.55rem 0.9rem;
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.05);
-  color: var(--text-soft);
-  border: 1px solid rgba(255, 255, 255, 0.06);
+  background: rgba(124, 140, 255, 0.1);
+  color: var(--text);
+  border: 1px solid rgba(124, 140, 255, 0.22);
 }
 
 .table {
@@ -295,13 +311,13 @@ p {
   width: 44px;
   height: 44px;
   border-radius: 12px;
-  background: rgba(255, 255, 255, 0.06);
+  background: rgba(79, 209, 255, 0.12);
   display: inline-flex;
   align-items: center;
   justify-content: center;
   font-size: 1.25rem;
   margin-bottom: 0.6rem;
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(79, 209, 255, 0.22);
 }
 
 .step-card h3 {
