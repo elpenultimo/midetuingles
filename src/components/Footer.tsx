@@ -9,7 +9,7 @@ const Footer = () => {
   const handleShare = async () => {
     const shareData = {
       title: 'Mide tu inglés',
-      text: 'Test por niveles A1–B2, gratis y sin registro.',
+      text: 'Test por niveles A1–C2, gratis y sin registro.',
       url: typeof window !== 'undefined' ? window.location.origin : 'https://midetuingles.com'
     };
 
@@ -37,7 +37,7 @@ const Footer = () => {
             <h2 id="footer-heading" className="footer-title">
               MideTuInglés
             </h2>
-            <p className="footer-text">Test por niveles A1–B2</p>
+            <p className="footer-text">Test por niveles A1–C2</p>
             <p className="footer-text">Sin registro</p>
             <p className="footer-text">Resultados inmediatos</p>
           </div>

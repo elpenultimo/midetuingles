@@ -1,6 +1,6 @@
 import questionsData from '@/data/questions.en.cefr.json';
 
-export type Level = 'A1' | 'A2' | 'B1' | 'B2';
+export type Level = 'A1' | 'A2' | 'B1' | 'B2' | 'C1' | 'C2';
 export type QuestionType = 'grammar' | 'vocab' | 'reading';
 
 export interface Question {
@@ -32,7 +32,7 @@ export interface AttemptState {
 }
 
 export const PASS_MARK = 70;
-export const LEVELS: Level[] = ['A1', 'A2', 'B1', 'B2'];
+export const LEVELS: Level[] = ['A1', 'A2', 'B1', 'B2', 'C1', 'C2'];
 export const QUESTIONS_PER_LEVEL = 10; // ready to scale to 20
 
 function fisherYatesShuffle<T>(input: T[]): T[] {

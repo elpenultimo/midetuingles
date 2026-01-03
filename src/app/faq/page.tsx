@@ -3,7 +3,7 @@ import FAQAccordion from '@/components/FAQAccordion';
 
 export const metadata: Metadata = {
   title: 'Preguntas frecuentes | Mide tu inglés',
-  description: 'Resuelve tus dudas sobre el test de inglés gratuito por niveles A1–B2 y cómo interpretar tus resultados.'
+  description: 'Resuelve tus dudas sobre el test de inglés gratuito por niveles A1–C2 y cómo interpretar tus resultados.'
 };
 
 export default function FAQPage() {

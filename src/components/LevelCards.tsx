@@ -25,6 +25,16 @@ const levels = [
     level: 'B2',
     label: 'Intermedio alto',
     description: 'Te comunicas con fluidez razonable y entiendes textos más complejos.'
+  },
+  {
+    level: 'C1',
+    label: 'Avanzado',
+    description: 'Te expresas con precisión, matizas ideas y manejas textos largos y especializados.'
+  },
+  {
+    level: 'C2',
+    label: 'Maestría',
+    description: 'Comprendes prácticamente todo y adaptas el registro según el contexto sin esfuerzo.'
   }
 ];
 
