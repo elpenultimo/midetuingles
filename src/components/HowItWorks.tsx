@@ -20,7 +20,7 @@ const steps = [
 
 const HowItWorks: FC = () => {
   return (
-    <section className="section" aria-labelledby="how-it-works-heading">
+    <section className="section" aria-labelledby="how-it-works-heading" id="como-funciona">
       <div className="container narrow">
         <header className="section-header">
           <div className="eyebrow" style={{ width: 'fit-content' }}>Proceso</div>

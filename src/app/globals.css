@@ -263,6 +263,29 @@ p {
   transition: width 220ms ease;
 }
 
+.sticky-progress {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  padding: 0.35rem 0;
+  backdrop-filter: blur(14px);
+  background: linear-gradient(180deg, rgba(15, 20, 44, 0.9), rgba(15, 20, 44, 0));
+}
+
+@media (min-width: 768px) {
+  .sticky-progress {
+    position: static;
+    backdrop-filter: none;
+    background: transparent;
+  }
+}
+
+.calm-copy {
+  margin-top: 0.35rem;
+  color: var(--muted);
+  font-weight: 500;
+}
+
 .option {
   display: block;
   width: 100%;
@@ -448,6 +471,24 @@ p {
   background: radial-gradient(80% 80% at 20% 20%, rgba(124, 140, 255, 0.08), transparent);
 }
 
+.level-card.clickable {
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition: transform 160ms ease, border-color 160ms ease, box-shadow 160ms ease;
+}
+
+.level-card.clickable:hover {
+  transform: translateY(-2px);
+  border-color: rgba(255, 255, 255, 0.16);
+  box-shadow: 0 18px 60px rgba(0, 0, 0, 0.35);
+}
+
+.level-card.level-a1 { border-color: rgba(var(--level-a1), 0.36); }
+.level-card.level-a2 { border-color: rgba(var(--level-a2), 0.36); }
+.level-card.level-b1 { border-color: rgba(var(--level-b1), 0.36); }
+.level-card.level-b2 { border-color: rgba(var(--level-b2), 0.36); }
+.level-card.level-c1 { border-color: rgba(var(--level-c1), 0.36); }
+.level-card.level-c2 { border-color: rgba(var(--level-c2), 0.36); }
+
 .level-label {
   color: var(--text);
 }
@@ -502,6 +543,42 @@ p {
 .faq-panel.open {
   max-height: 400px;
   padding-bottom: 0.95rem;
+}
+
+.result-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.result-card .level-accent {
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 6px;
+  background: linear-gradient(90deg, rgba(124, 140, 255, 0.6), rgba(217, 108, 255, 0.4));
+}
+
+.result-card.level-a1 .level-accent { background: linear-gradient(90deg, rgba(var(--level-a1), 0.8), rgba(255, 255, 255, 0)); }
+.result-card.level-a2 .level-accent { background: linear-gradient(90deg, rgba(var(--level-a2), 0.8), rgba(255, 255, 255, 0)); }
+.result-card.level-b1 .level-accent { background: linear-gradient(90deg, rgba(var(--level-b1), 0.8), rgba(255, 255, 255, 0)); }
+.result-card.level-b2 .level-accent { background: linear-gradient(90deg, rgba(var(--level-b2), 0.8), rgba(255, 255, 255, 0)); }
+.result-card.level-c1 .level-accent { background: linear-gradient(90deg, rgba(var(--level-c1), 0.8), rgba(255, 255, 255, 0)); }
+.result-card.level-c2 .level-accent { background: linear-gradient(90deg, rgba(var(--level-c2), 0.8), rgba(255, 255, 255, 0)); }
+
+.cta-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+@media (max-width: 640px) {
+  .cta-stack {
+    width: 100%;
+  }
+
+  .cta-stack .button,
+  .cta-stack .button.secondary {
+    width: 100%;
+  }
 }
 
 .site-footer {
@@ -597,6 +674,12 @@ p {
 
 .question-card {
   animation: slideFade 280ms ease;
+}
+
+.level-banner {
+  margin-bottom: 0.65rem;
+  display: grid;
+  gap: 0.2rem;
 }
 
 @keyframes slideFade {

@@ -9,34 +9,24 @@ interface FAQAccordionProps {
 
 const faqs = [
   {
-    question: '¿El test es gratis?',
-    answer: 'Sí. No pedimos registro y puedes repetirlo cuando quieras.'
+    question: '¿Es gratis el test?',
+    answer: 'Sí. Todo el test es gratuito y no solicitamos tarjeta ni datos de pago.'
   },
   {
-    question: '¿Cuánto demora?',
-    answer: 'Normalmente 3–7 minutos por nivel (10 preguntas).'
+    question: '¿Cuánto tiempo toma?',
+    answer: 'Entre 3 y 7 minutos por nivel. Son 10 preguntas rápidas con feedback inmediato.'
   },
   {
-    question: '¿Qué evalúa?',
-    answer: 'Vocabulario, gramática y lectura rápida con preguntas claras.'
+    question: '¿Necesito registrarme?',
+    answer: 'No. Usamos solo tu navegador para guardar el avance y puedas retomarlo cuando quieras.'
   },
   {
-    question: '¿Es un certificado oficial?',
-    answer: 'No. Es una estimación orientativa para ubicarte por nivel.'
+    question: '¿Qué tan preciso es el resultado?',
+    answer: 'Es una estimación orientativa basada en el MCER. Útil para ubicarte y medir progreso.'
   },
   {
-    question: '¿Puedo saltar niveles?',
-    answer: 'Sí. Puedes empezar en A2 o B1 si ya tienes base.'
-  },
-  {
-    question: '¿Por qué me salió un nivel más bajo/alto de lo esperado?',
-    answer:
-      'Influye el tipo de preguntas, nervios y vocab específico. Lo ideal es repetir en otro momento.'
-  },
-  {
-    question: '¿Qué hago después de conocer mi nivel?',
-    answer:
-      'Te recomendamos enfocarte en lo que más fallas y repetir el test en 2–3 semanas para medir progreso.'
+    question: '¿Puedo repetirlo?',
+    answer: 'Claro. No hay penalización por repetir; incluso es recomendable para seguir avanzando.'
   }
 ];
 
