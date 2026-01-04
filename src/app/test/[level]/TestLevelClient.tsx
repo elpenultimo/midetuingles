@@ -73,6 +73,16 @@ export default function TestLevelClient({ level }: TestLevelClientProps) {
     return attempt.questionsByLevel?.[levelParam] ?? [];
   }, [attempt, levelParam]);
 
+  const encouragementMessage = useMemo(() => {
+    if (!questions.length) return null;
+    const halfwayIndex = Math.max(1, Math.floor((questions.length - 1) / 2));
+    const nearEndIndex = Math.max(halfwayIndex + 1, questions.length - 2);
+
+    if (currentIndex === halfwayIndex) return 'Vas bien';
+    if (questions.length >= 6 && currentIndex === nearEndIndex) return 'Sigue así';
+    return null;
+  }, [currentIndex, questions.length]);
+
   if (!isValidLevel(levelParam)) {
     return null;
   }
@@ -178,12 +188,6 @@ export default function TestLevelClient({ level }: TestLevelClientProps) {
     router.push('/');
   };
 
-  const calmMessages = [
-    'No hay penalización por equivocarse · Puedes reiniciar el test cuando quieras',
-    'Vas bien, sigue respondiendo a tu ritmo'
-  ];
-  const friendlyHint = currentIndex >= Math.floor((questions.length - 1) / 2) ? calmMessages[1] : calmMessages[0];
-
   const handleCancelExit = () => {
     setShowExitConfirm(false);
   };
@@ -218,9 +222,11 @@ export default function TestLevelClient({ level }: TestLevelClientProps) {
       </div>
       <div className="sticky-progress">
         <ProgressBar current={currentIndex} total={questions.length} level={levelParam} />
-        <div className="calm-copy">
-          <small>{friendlyHint}</small>
-        </div>
+        {encouragementMessage && (
+          <div className="calm-copy">
+            <small>{encouragementMessage}</small>
+          </div>
+        )}
       </div>
       <QuestionCard
         question={questions[currentIndex]}
