@@ -192,7 +192,7 @@ export default function TestLevelClient({ level }: TestLevelClientProps) {
         <div className="badge">Nivel {levelParam}</div>
         <div className="badge">Mínimo para aprobar: 70%</div>
       </div>
-      <ProgressBar current={currentIndex} total={questions.length} />
+      <ProgressBar current={currentIndex} total={questions.length} level={levelParam} />
       <QuestionCard
         question={questions[currentIndex]}
         index={currentIndex}

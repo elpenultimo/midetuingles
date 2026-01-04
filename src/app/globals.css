@@ -237,6 +237,17 @@ p {
   color: var(--text-soft);
 }
 
+.progress-bar {
+  --progress-rgb: 124, 140, 255;
+}
+
+.progress-bar.level-a1 { --progress-rgb: var(--level-a1); }
+.progress-bar.level-a2 { --progress-rgb: var(--level-a2); }
+.progress-bar.level-b1 { --progress-rgb: var(--level-b1); }
+.progress-bar.level-b2 { --progress-rgb: var(--level-b2); }
+.progress-bar.level-c1 { --progress-rgb: var(--level-c1); }
+.progress-bar.level-c2 { --progress-rgb: var(--level-c2); }
+
 .progress-shell {
   background: rgba(255, 255, 255, 0.05);
   border-radius: 999px;
@@ -247,7 +258,8 @@ p {
 
 .progress-fill {
   height: 100%;
-  background: linear-gradient(90deg, var(--primary), var(--accentCyan), var(--success));
+  background: linear-gradient(90deg, rgba(var(--progress-rgb), 0.95), rgba(var(--progress-rgb), 0.78));
+  box-shadow: 0 8px 22px rgba(var(--progress-rgb), 0.18);
   transition: width 220ms ease;
 }
 
