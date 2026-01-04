@@ -14,6 +14,7 @@ import {
   makeEmptyAttempt,
   selectQuestions
 } from '@/lib/testEngine';
+import { LEVEL_DETAILS } from '@/lib/levelInfo';
 
 interface TestLevelClientProps {
   level: string;
@@ -39,6 +40,7 @@ export default function TestLevelClient({ level }: TestLevelClientProps) {
   const [loading, setLoading] = useState(true);
   const [showExitConfirm, setShowExitConfirm] = useState(false);
   const levelParam = level?.toUpperCase() as Level;
+  const levelDetail = LEVEL_DETAILS[levelParam];
 
   useEffect(() => {
     if (!isValidLevel(levelParam)) {
@@ -188,11 +190,26 @@ export default function TestLevelClient({ level }: TestLevelClientProps) {
           Inicio
         </button>
       </div>
+      <div className="level-banner">
+        <div className={`badge level-badge level-${levelParam.toLowerCase()}`}>
+          Nivel {levelParam} · {levelDetail?.title}
+        </div>
+        {levelDetail?.note && (
+          <small className="subtle" style={{ marginTop: '0.35rem', display: 'block' }}>
+            {levelDetail.note}
+          </small>
+        )}
+      </div>
       <div className="meta-row">
         <div className="badge">Nivel {levelParam}</div>
         <div className="badge">Mínimo para aprobar: 70%</div>
       </div>
-      <ProgressBar current={currentIndex} total={questions.length} level={levelParam} />
+      <div className="sticky-progress">
+        <ProgressBar current={currentIndex} total={questions.length} level={levelParam} />
+        <div className="calm-copy">
+          <small>No hay penalización por equivocarse · Puedes reiniciar el test cuando quieras</small>
+        </div>
+      </div>
       <QuestionCard
         question={questions[currentIndex]}
         index={currentIndex}
