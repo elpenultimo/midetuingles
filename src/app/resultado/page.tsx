@@ -17,6 +17,7 @@ import {
   QUESTIONS_PER_LEVEL
 } from '@/lib/testEngine';
 import { LEVEL_DETAILS, getNextLevel } from '@/lib/levelInfo';
+import { LEVEL_RESULT_MESSAGES, getOrientativeNote } from '@/lib/resultCopy';
 
 export default function ResultadoPage() {
   const router = useRouter();
@@ -81,6 +82,8 @@ export default function ResultadoPage() {
   const finalLevel = getFinalLevel(attempt.resultsByLevel);
   const finalKey = finalLevel === 'A1_in_progress' ? 'A1' : finalLevel;
   const levelDetail = LEVEL_DETAILS[finalKey];
+  const humanResultLine = LEVEL_RESULT_MESSAGES[finalKey as Level];
+  const orientativeNote = getOrientativeNote(finalKey as Level, levelDetail?.note);
 
   return (
     <div className="container" style={{ paddingTop: '1.5rem', paddingBottom: '2rem' }}>
@@ -95,7 +98,22 @@ export default function ResultadoPage() {
               </span>
               <strong className="level-label">{levelDetail?.title}</strong>
             </div>
+            {humanResultLine && (
+              <p className="result-human" style={{ margin: '0.35rem 0' }}>
+                {humanResultLine}
+              </p>
+            )}
             <p style={{ marginBottom: 0, color: 'var(--text-soft)' }}>{levelDetail?.summary}</p>
+            {orientativeNote && (
+              <small className="subtle" style={{ display: 'block', marginTop: '0.35rem' }}>
+                {orientativeNote}
+              </small>
+            )}
+            {levelDetail?.note && (
+              <small className="subtle" style={{ marginTop: '0.35rem', display: 'block' }}>
+                {levelDetail.note}
+              </small>
+            )}
           </div>
           <div className="cta-stack">
             <button className="button" type="button" onClick={handleRetry}>
