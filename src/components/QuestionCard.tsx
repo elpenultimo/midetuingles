@@ -16,8 +16,8 @@ export function QuestionCard({ question, index, total, selected, onSelect }: Pro
   return (
     <div className="card question-card">
       <div className="meta-row" style={{ justifyContent: 'space-between', alignItems: 'center' }}>
-        <span className="badge">Pregunta {index + 1} de {total}</span>
-        <span className="badge">{question.type}</span>
+        <span className="badge prominent">Pregunta {index + 1} de {total}</span>
+        <span className="badge subtle-badge">{question.type}</span>
       </div>
       {question.passage && (
         <div className="alert" style={{ marginBottom: '0.75rem', whiteSpace: 'pre-line' }}>

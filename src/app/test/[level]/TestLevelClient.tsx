@@ -178,17 +178,29 @@ export default function TestLevelClient({ level }: TestLevelClientProps) {
     router.push('/');
   };
 
+  const calmMessages = [
+    'No hay penalización por equivocarse · Puedes reiniciar el test cuando quieras',
+    'Vas bien, sigue respondiendo a tu ritmo'
+  ];
+  const friendlyHint = currentIndex >= Math.floor((questions.length - 1) / 2) ? calmMessages[1] : calmMessages[0];
+
   const handleCancelExit = () => {
     setShowExitConfirm(false);
   };
 
   return (
     <div className="container" style={{ paddingTop: '1.5rem', paddingBottom: '2rem' }}>
-      <div style={{ marginBottom: '0.5rem' }}>
-        <button type="button" className="back-link" onClick={handleExitRequest}>
-          <span aria-hidden="true">←</span>
-          Inicio
-        </button>
+      <div style={{ marginBottom: '0.65rem' }}>
+        <div className="micro-breadcrumb" aria-label="Ruta de navegación">
+          <button type="button" className="back-link" onClick={handleExitRequest}>
+            <span aria-hidden="true">←</span>
+            Inicio
+          </button>
+          <span className="crumb-separator" aria-hidden>
+            ·
+          </span>
+          <span className={`crumb-level level-${levelParam.toLowerCase()}`}>Nivel {levelParam}</span>
+        </div>
       </div>
       <div className="level-banner">
         <div className={`badge level-badge level-${levelParam.toLowerCase()}`}>
@@ -201,13 +213,13 @@ export default function TestLevelClient({ level }: TestLevelClientProps) {
         )}
       </div>
       <div className="meta-row">
-        <div className="badge">Nivel {levelParam}</div>
-        <div className="badge">Mínimo para aprobar: 70%</div>
+        <div className="badge elevated">Nivel {levelParam}</div>
+        <div className="badge elevated">Mínimo para aprobar: 70%</div>
       </div>
       <div className="sticky-progress">
         <ProgressBar current={currentIndex} total={questions.length} level={levelParam} />
         <div className="calm-copy">
-          <small>No hay penalización por equivocarse · Puedes reiniciar el test cuando quieras</small>
+          <small>{friendlyHint}</small>
         </div>
       </div>
       <QuestionCard
