@@ -1,11 +1,11 @@
 :root {
-  --bg: #1b2250;
-  --bg-alt: #141a3a;
-  --card: rgba(15, 20, 44, 0.78);
-  --card-strong: rgba(15, 20, 44, 0.94);
-  --text: #e5e7ff;
-  --muted: #8a90c2;
-  --text-soft: #b6bce6;
+  --bg: #1d2656;
+  --bg-alt: #131a3d;
+  --card: rgba(15, 20, 44, 0.82);
+  --card-strong: rgba(12, 17, 38, 0.96);
+  --text: #e9ebff;
+  --muted: #9aa1d3;
+  --text-soft: #c0c6ee;
   --primary: #7c8cff;
   --primaryHover: #8f9cff;
   --accent: #7c8cff;
@@ -14,7 +14,7 @@
   --accentMagenta: #d96cff;
   --success: #4ade80;
   --danger: #f87171;
-  --border: rgba(124, 140, 255, 0.25);
+  --border: rgba(124, 140, 255, 0.32);
   --level-a1: 120, 203, 164;
   --level-a2: 124, 185, 229;
   --level-b1: 226, 191, 104;
@@ -29,7 +29,8 @@
 
 body {
   margin: 0;
-  background: radial-gradient(140% 120% at 20% 18%, var(--bg-alt), var(--bg));
+  background: radial-gradient(120% 110% at 22% 18%, rgba(34, 44, 92, 0.85), var(--bg)),
+    radial-gradient(90% 90% at 80% 10%, rgba(11, 17, 38, 0.75), var(--bg-alt));
   color: var(--text);
   min-height: 100vh;
   font-family: var(--font-inter, 'Inter'), system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
@@ -55,12 +56,27 @@ main {
   max-width: 920px;
 }
 
+.info-block {
+  position: relative;
+}
+
 .section {
-  padding: 2.25rem 0 0.5rem;
+  padding: 2.5rem 0 1rem;
+  position: relative;
+}
+
+.section + .section::before,
+.info-block::before {
+  content: '';
+  position: absolute;
+  inset: 0 1rem auto 1rem;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0), rgba(124, 140, 255, 0.18), rgba(255, 255, 255, 0));
+  opacity: 0.9;
 }
 
 .section-header {
-  margin-bottom: 1.25rem;
+  margin-bottom: 1.35rem;
 }
 
 .section-subtitle {
@@ -71,17 +87,18 @@ main {
 .card {
   background: var(--card);
   border: 1px solid var(--border);
-  border-radius: 16px;
+  border-radius: 14px;
   padding: 1.35rem;
-  backdrop-filter: blur(10px);
-  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.25);
-  transition: transform 200ms ease, border-color 200ms ease, box-shadow 200ms ease;
+  backdrop-filter: blur(8px);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.28);
+  transition: transform 200ms ease, border-color 200ms ease, box-shadow 200ms ease, background 200ms ease;
 }
 
 .card:hover {
   transform: translateY(-2px);
-  border-color: rgba(124, 140, 255, 0.35);
-  box-shadow: 0 30px 80px rgba(124, 140, 255, 0.08);
+  border-color: rgba(124, 140, 255, 0.38);
+  box-shadow: 0 32px 90px rgba(124, 140, 255, 0.12);
+  background: rgba(15, 20, 44, 0.86);
 }
 
 .button {
@@ -96,8 +113,8 @@ main {
   font-weight: 700;
   font-family: var(--font-space-grotesk, 'Space Grotesk'), 'Inter', system-ui, sans-serif;
   cursor: pointer;
-  transition: transform 150ms ease, box-shadow 150ms ease, opacity 150ms ease;
-  box-shadow: 0 18px 40px rgba(124, 140, 255, 0.24);
+  transition: transform 180ms ease, box-shadow 200ms ease, opacity 160ms ease;
+  box-shadow: 0 18px 40px rgba(124, 140, 255, 0.26);
 }
 
 .button.start-cta {
@@ -140,7 +157,7 @@ main {
 
 .button:hover:not(:disabled) {
   transform: translateY(-1px);
-  box-shadow: 0 10px 30px rgba(124, 140, 255, 0.18), 0 0 0 1px rgba(143, 156, 255, 0.22);
+  box-shadow: 0 14px 36px rgba(124, 140, 255, 0.2), 0 0 0 1px rgba(143, 156, 255, 0.26);
 }
 
 .button:focus-visible {
@@ -260,16 +277,16 @@ p {
   height: 100%;
   background: linear-gradient(90deg, rgba(var(--progress-rgb), 0.95), rgba(var(--progress-rgb), 0.78));
   box-shadow: 0 8px 22px rgba(var(--progress-rgb), 0.18);
-  transition: width 220ms ease;
+  transition: width 220ms ease, filter 180ms ease;
 }
 
 .sticky-progress {
   position: sticky;
   top: 0;
   z-index: 10;
-  padding: 0.35rem 0;
+  padding: 0.45rem 0 0.65rem;
   backdrop-filter: blur(14px);
-  background: linear-gradient(180deg, rgba(15, 20, 44, 0.9), rgba(15, 20, 44, 0));
+  background: linear-gradient(180deg, rgba(15, 20, 44, 0.94), rgba(15, 20, 44, 0));
 }
 
 @media (min-width: 768px) {
@@ -342,6 +359,12 @@ p {
   border: 1px solid rgba(124, 140, 255, 0.22);
 }
 
+.badge-ghost {
+  background: rgba(255, 255, 255, 0.03);
+  border-color: rgba(124, 140, 255, 0.22);
+  color: var(--text);
+}
+
 .table {
   width: 100%;
   border-collapse: collapse;
@@ -381,6 +404,12 @@ p {
   margin-bottom: 1rem;
 }
 
+.meta-row .badge.elevated {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.12);
+  color: var(--text);
+}
+
 .highlight-text {
   color: var(--text-soft);
   font-weight: 500;
@@ -399,7 +428,7 @@ p {
 
 .hero {
   text-align: center;
-  padding: 2rem 1rem;
+  padding: 2.15rem 1rem 1.6rem;
 }
 
 .hero h1 {
@@ -408,7 +437,19 @@ p {
 
 .hero p {
   max-width: 720px;
-  margin: 0.5rem auto 1rem;
+  margin: 0.5rem auto 1.1rem;
+}
+
+.hero-subtitle {
+  color: var(--text-soft);
+  font-size: 1.03rem;
+}
+
+.cta-cluster {
+  margin-top: 0.35rem;
+  display: grid;
+  gap: 0.65rem;
+  justify-items: center;
 }
 
 .icon-circle {
@@ -422,6 +463,16 @@ p {
   font-size: 1.25rem;
   margin-bottom: 0.6rem;
   border: 1px solid rgba(79, 209, 255, 0.22);
+}
+
+.icon-circle.ghost {
+  background: rgba(255, 255, 255, 0.04);
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+.mini-card {
+  text-align: left;
+  border-radius: 12px;
 }
 
 .step-card h3 {
@@ -696,4 +747,44 @@ p {
 small.subtle {
   color: var(--muted);
   font-weight: 500;
+}
+
+.micro-breadcrumb {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.95rem;
+  color: var(--muted);
+}
+
+.crumb-level {
+  color: var(--text);
+  font-weight: 600;
+}
+
+.crumb-level.level-a1 { color: rgba(var(--level-a1), 0.95); }
+.crumb-level.level-a2 { color: rgba(var(--level-a2), 0.95); }
+.crumb-level.level-b1 { color: rgba(var(--level-b1), 0.95); }
+.crumb-level.level-b2 { color: rgba(var(--level-b2), 0.95); }
+.crumb-level.level-c1 { color: rgba(var(--level-c1), 0.95); }
+.crumb-level.level-c2 { color: rgba(var(--level-c2), 0.95); }
+
+.crumb-separator {
+  color: rgba(255, 255, 255, 0.35);
+}
+
+.badge.prominent {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.16);
+  color: var(--text);
+}
+
+.badge.subtle-badge {
+  background: rgba(255, 255, 255, 0.04);
+  border-color: rgba(255, 255, 255, 0.12);
+}
+
+.result-human {
+  color: var(--text-soft);
+  font-weight: 600;
 }

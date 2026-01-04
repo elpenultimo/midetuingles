@@ -14,6 +14,14 @@ export function ResultSummary({ resultsByLevel, onRetry, onTryNext }: Props) {
   const nextLevel = finalLevel === 'A1_in_progress' ? null : getNextLevel(finalLevel);
   const detail = LEVEL_DETAILS[finalKey];
   const accentClass = `level-${finalKey.toLowerCase()}`;
+  const humanNotes: Partial<Record<Level, string>> = {
+    A1: 'Bases iniciales: puedes saludar y compartir datos simples.',
+    A2: 'Nivel básico cómodo: entiendes frases habituales y te haces entender.',
+    B1: 'Buen nivel intermedio: ya puedes desenvolverte en situaciones comunes.',
+    B2: 'Sólido intermedio alto: sostienes conversaciones fluidas y precisas.',
+    C1: 'Nivel avanzado: manejas matices y vocabulario amplio sin esfuerzo.',
+    C2: 'Dominio casi nativo: te mueves con soltura en cualquier contexto.'
+  };
 
   return (
     <div className={`card result-card ${accentClass}`}>
@@ -32,6 +40,11 @@ export function ResultSummary({ resultsByLevel, onRetry, onTryNext }: Props) {
             <small className="subtle" style={{ display: 'block', marginTop: '0.35rem' }}>
               {detail.note}
             </small>
+          )}
+          {humanNotes[finalKey as Level] && (
+            <p className="result-human" style={{ marginTop: '0.55rem' }}>
+              {humanNotes[finalKey as Level]}
+            </p>
           )}
         </div>
         <div className="cta-stack">
