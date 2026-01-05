@@ -83,9 +83,9 @@ export function getQuestionsByIds(ids: string[]): Question[] {
   return ids.map((id) => map.get(id)).filter(Boolean) as Question[];
 }
 
-export function makeEmptyAttempt(): AttemptState {
+export function makeEmptyAttempt(startingLevel: Level = 'A1'): AttemptState {
   return {
-    currentLevel: 'A1',
+    currentLevel: startingLevel,
     questionIdsByLevel: {},
     answersByLevel: {},
     resultsByLevel: {},
