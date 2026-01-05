@@ -5,7 +5,7 @@ const QuickInstructions: FC = () => {
     'Responde sin apurarte, pero sin quedarte pegado.',
     'Si dudas entre dos, elige la que suena más natural.',
     'No pasa nada si te equivocas: esto es para medir, no para juzgar.',
-    'Ideal hacerlo con audífonos si estás en la calle (opcional).',
+    'Hazlo en un lugar tranquilo para concentrarte mejor.',
     'Puedes repetir el test para comparar tu progreso.'
   ];
 
