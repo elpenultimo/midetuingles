@@ -34,6 +34,38 @@ function ensureLevelQuestions(state: AttemptState, level: Level): AttemptState {
 }
 
 const INTRO_CONTENT: Partial<Record<Level, { title: string; paragraphs: string[] }>> = {
+  A1: {
+    title: 'Test de inglés nivel A1',
+    paragraphs: [
+      'Este test de nivel A1 está pensado para quienes están comenzando a aprender inglés.',
+      'Evalúa vocabulario básico, estructuras simples y comprensión de frases cotidianas.',
+      'El resultado es orientativo y te ayudará a saber si ya dominas los fundamentos del idioma.'
+    ]
+  },
+  A2: {
+    title: 'Test de inglés nivel A2',
+    paragraphs: [
+      'Este test de nivel A2 está diseñado para personas con conocimientos básicos de inglés.',
+      'Evalúa tu capacidad para entender y usar expresiones comunes en situaciones cotidianas.',
+      'El resultado es orientativo y refleja un nivel básico de comunicación.'
+    ]
+  },
+  B1: {
+    title: 'Test de inglés nivel B1',
+    paragraphs: [
+      'Este test de nivel B1 evalúa si puedes desenvolverte en situaciones habituales en inglés.',
+      'Incluye preguntas de gramática, vocabulario y comprensión usadas en contextos reales.',
+      'El resultado es orientativo y corresponde a un nivel intermedio del idioma.'
+    ]
+  },
+  B2: {
+    title: 'Test de inglés nivel B2',
+    paragraphs: [
+      'Este test de nivel B2 está orientado a personas con un dominio intermedio alto del inglés.',
+      'Evalúa comprensión más profunda, precisión gramatical y uso natural del idioma.',
+      'El resultado es orientativo y refleja un buen nivel de autonomía en inglés.'
+    ]
+  },
   C1: {
     title: 'Test de inglés nivel C1',
     paragraphs: [
