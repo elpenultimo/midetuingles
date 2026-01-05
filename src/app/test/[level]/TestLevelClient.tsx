@@ -4,6 +4,7 @@ import { useEffect, useMemo, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import ProgressBar from '@/components/ProgressBar';
 import QuestionCard from '@/components/QuestionCard';
+import FAQAccordion from '@/components/FAQAccordion';
 import { clearFromStorage, loadFromStorage, saveToStorage, STORAGE_KEYS } from '@/lib/storage';
 import {
   AttemptState,
@@ -15,6 +16,7 @@ import {
   selectQuestions
 } from '@/lib/testEngine';
 import { LEVEL_DETAILS } from '@/lib/levelInfo';
+import { LEVEL_FAQ } from '@/data/levelFaq';
 
 interface TestLevelClientProps {
   level: string;
@@ -94,6 +96,7 @@ export default function TestLevelClient({ level }: TestLevelClientProps) {
   const levelParam = level?.toUpperCase() as Level;
   const levelDetail = LEVEL_DETAILS[levelParam];
   const introContent = INTRO_CONTENT[levelParam];
+  const levelFaq = LEVEL_FAQ[levelParam];
 
   useEffect(() => {
     if (!isValidLevel(levelParam)) {
@@ -334,6 +337,16 @@ export default function TestLevelClient({ level }: TestLevelClientProps) {
           {currentIndex === questions.length - 1 ? 'Terminar nivel' : 'Siguiente'}
         </button>
       </div>
+      {levelFaq && (
+        <div style={{ marginTop: '1.5rem' }}>
+          <FAQAccordion
+            id={`faq-${levelParam.toLowerCase()}`}
+            title="Preguntas frecuentes"
+            items={levelFaq.items}
+            showLink={false}
+          />
+        </div>
+      )}
       {showExitConfirm && (
         <div className="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="exit-confirm-title">
           <div className="modal">

@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import TestLevelClient from './TestLevelClient';
 import { LEVELS, type Level } from '@/lib/testEngine';
 import { LEVEL_DETAILS } from '@/lib/levelInfo';
+import { LEVEL_FAQ } from '@/data/levelFaq';
 
 interface PageProps {
   params: { level: string };
@@ -53,5 +54,32 @@ export function generateMetadata({ params }: PageProps): Metadata {
 }
 
 export default function LevelTestPage({ params }: PageProps) {
-  return <TestLevelClient level={params.level} />;
+  const levelParam = params.level?.toUpperCase();
+  const isValidLevel = LEVELS.includes(levelParam as Level);
+  const levelLabel = (isValidLevel ? levelParam : 'A1') as Level;
+  const faqItems = LEVEL_FAQ[levelLabel]?.items ?? [];
+
+  const faqJsonLd = faqItems.length
+    ? {
+        '@context': 'https://schema.org',
+        '@type': 'FAQPage',
+        mainEntity: faqItems.map((item) => ({
+          '@type': 'Question',
+          name: item.question,
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: item.answer
+          }
+        }))
+      }
+    : null;
+
+  return (
+    <>
+      <TestLevelClient level={params.level} />
+      {faqJsonLd && (
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
+      )}
+    </>
+  );
 }

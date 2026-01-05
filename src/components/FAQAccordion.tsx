@@ -3,11 +3,19 @@
 import Link from 'next/link';
 import { FC, useState } from 'react';
 
-interface FAQAccordionProps {
-  showLink?: boolean;
+export interface FAQItem {
+  question: string;
+  answer: string;
 }
 
-const faqs = [
+interface FAQAccordionProps {
+  title?: string;
+  items?: FAQItem[];
+  showLink?: boolean;
+  id?: string;
+}
+
+const defaultFaqs: FAQItem[] = [
   {
     question: '¿Es gratis el test?',
     answer: 'Sí. Todo el test es gratuito y no solicitamos tarjeta ni datos de pago.'
@@ -30,15 +38,17 @@ const faqs = [
   }
 ];
 
-const FAQAccordion: FC<FAQAccordionProps> = ({ showLink = true }) => {
+const FAQAccordion: FC<FAQAccordionProps> = ({ title = 'Preguntas frecuentes', items, showLink = true, id }) => {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
+  const faqs = items?.length ? items : defaultFaqs;
+  const sectionId = id ?? 'faq';
 
   return (
-    <section className="section" aria-labelledby="faq-heading" id="faq">
+    <section className="section" aria-labelledby="faq-heading" id={sectionId}>
       <div className="container narrow">
         <header className="section-header">
           <div className="eyebrow" style={{ width: 'fit-content' }}>FAQ</div>
-          <h2 id="faq-heading">Preguntas frecuentes</h2>
+          <h2 id="faq-heading">{title}</h2>
         </header>
         <div className="faq-list">
           {faqs.map((item, index) => {
