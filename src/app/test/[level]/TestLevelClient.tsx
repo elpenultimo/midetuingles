@@ -49,20 +49,41 @@ export default function TestLevelClient({ level }: TestLevelClientProps) {
     }
 
     const stored = loadFromStorage<AttemptState>(STORAGE_KEYS.ATTEMPT_STATE);
-    let working = stored ?? makeEmptyAttempt();
-    working.currentLevel = working.currentLevel || 'A1';
 
-    if (working.currentLevel !== levelParam) {
-      // guard against skipping ahead
-      router.replace(`/test/${working.currentLevel.toLowerCase()}`);
+    if (!stored) {
+      const initialAttempt = ensureLevelQuestions(makeEmptyAttempt(levelParam), levelParam);
+      saveToStorage(STORAGE_KEYS.ATTEMPT_STATE, initialAttempt);
+      setAttempt(initialAttempt);
+
+      const answers = initialAttempt.answersByLevel?.[levelParam] ?? [];
+      const nextUnanswered = answers.findIndex((ans) => ans === null || typeof ans === 'undefined');
+      setCurrentIndex(nextUnanswered >= 0 ? nextUnanswered : 0);
+      setLoading(false);
       return;
     }
 
-    working = ensureLevelQuestions(working, levelParam);
-    saveToStorage(STORAGE_KEYS.ATTEMPT_STATE, working);
-    setAttempt(working);
+    const working: AttemptState = {
+      ...stored,
+      currentLevel: stored.currentLevel || 'A1'
+    };
 
-    const answers = working.answersByLevel?.[levelParam] ?? [];
+    if (working.currentLevel !== levelParam) {
+      const resetAttempt = ensureLevelQuestions(makeEmptyAttempt(levelParam), levelParam);
+      saveToStorage(STORAGE_KEYS.ATTEMPT_STATE, resetAttempt);
+      setAttempt(resetAttempt);
+
+      const answers = resetAttempt.answersByLevel?.[levelParam] ?? [];
+      const nextUnanswered = answers.findIndex((ans) => ans === null || typeof ans === 'undefined');
+      setCurrentIndex(nextUnanswered >= 0 ? nextUnanswered : 0);
+      setLoading(false);
+      return;
+    }
+
+    const hydrated = ensureLevelQuestions(working, levelParam);
+    saveToStorage(STORAGE_KEYS.ATTEMPT_STATE, hydrated);
+    setAttempt(hydrated);
+
+    const answers = hydrated.answersByLevel?.[levelParam] ?? [];
     const nextUnanswered = answers.findIndex((ans) => ans === null || typeof ans === 'undefined');
     setCurrentIndex(nextUnanswered >= 0 ? nextUnanswered : 0);
     setLoading(false);
