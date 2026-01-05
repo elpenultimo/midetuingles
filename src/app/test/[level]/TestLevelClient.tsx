@@ -16,6 +16,7 @@ import {
   selectQuestions
 } from '@/lib/testEngine';
 import { LEVEL_DETAILS } from '@/lib/levelInfo';
+import { getLevelShortCopy } from '@/data/levelCopy';
 import { LEVEL_FAQ } from '@/data/levelFaq';
 
 interface TestLevelClientProps {
@@ -96,6 +97,7 @@ export default function TestLevelClient({ level }: TestLevelClientProps) {
   const levelParam = level?.toUpperCase() as Level;
   const levelDetail = LEVEL_DETAILS[levelParam];
   const introContent = INTRO_CONTENT[levelParam];
+  const levelShortCopy = getLevelShortCopy(levelParam);
   const levelFaq = LEVEL_FAQ[levelParam];
 
   useEffect(() => {
@@ -296,6 +298,14 @@ export default function TestLevelClient({ level }: TestLevelClientProps) {
       {introContent && (
         <div className="card" style={{ marginTop: '0.5rem', marginBottom: '0.75rem' }}>
           <h1 style={{ margin: '0 0 0.35rem' }}>{introContent.title}</h1>
+          {levelShortCopy && (
+            <p
+              className="calm-copy"
+              style={{ margin: '0 0 0.35rem', color: 'var(--muted-text)', fontSize: '0.95rem' }}
+            >
+              {levelShortCopy}
+            </p>
+          )}
           <div className="calm-copy" style={{ display: 'grid', gap: '0.45rem' }}>
             {introContent.paragraphs.map((paragraph) => (
               <p key={paragraph} style={{ margin: 0 }}>
