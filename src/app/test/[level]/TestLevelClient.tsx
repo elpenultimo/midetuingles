@@ -33,6 +33,26 @@ function ensureLevelQuestions(state: AttemptState, level: Level): AttemptState {
   return state;
 }
 
+const INTRO_CONTENT: Partial<Record<Level, { title: string; paragraphs: string[] }>> = {
+  C1: {
+    title: 'Test de inglés nivel C1',
+    paragraphs: [
+      'Este test de nivel C1 está diseñado para personas con un dominio avanzado del inglés.',
+      'Evalúa tu capacidad para comprender textos complejos, usar estructuras gramaticales con precisión y expresarte con naturalidad en contextos exigentes.',
+      'El resultado es orientativo y te ayudará a saber si ya manejas el idioma a nivel avanzado.'
+    ]
+  },
+  C2: {
+    title: 'Test de inglés nivel C2',
+    paragraphs: [
+      'Este test de nivel C2 está orientado a personas con un dominio muy avanzado del inglés, cercano al nivel nativo.',
+      'Incluye preguntas que requieren precisión gramatical, comprensión profunda y un manejo natural del idioma en situaciones complejas.',
+      'Si apruebas este test, tu nivel de inglés se considera muy alto.',
+      'El resultado es orientativo y no corresponde a una certificación oficial.'
+    ]
+  }
+};
+
 export default function TestLevelClient({ level }: TestLevelClientProps) {
   const router = useRouter();
   const [attempt, setAttempt] = useState<AttemptState | null>(null);
@@ -41,6 +61,7 @@ export default function TestLevelClient({ level }: TestLevelClientProps) {
   const [showExitConfirm, setShowExitConfirm] = useState(false);
   const levelParam = level?.toUpperCase() as Level;
   const levelDetail = LEVEL_DETAILS[levelParam];
+  const introContent = INTRO_CONTENT[levelParam];
 
   useEffect(() => {
     if (!isValidLevel(levelParam)) {
@@ -237,6 +258,18 @@ export default function TestLevelClient({ level }: TestLevelClientProps) {
           </small>
         )}
       </div>
+      {introContent && (
+        <div className="card" style={{ marginTop: '0.5rem', marginBottom: '0.75rem' }}>
+          <h1 style={{ margin: '0 0 0.35rem' }}>{introContent.title}</h1>
+          <div className="calm-copy" style={{ display: 'grid', gap: '0.45rem' }}>
+            {introContent.paragraphs.map((paragraph) => (
+              <p key={paragraph} style={{ margin: 0 }}>
+                {paragraph}
+              </p>
+            ))}
+          </div>
+        </div>
+      )}
       <div className="meta-row">
         <div className="badge elevated">Nivel {levelParam}</div>
         <div className="badge elevated">Mínimo para aprobar: 70%</div>
