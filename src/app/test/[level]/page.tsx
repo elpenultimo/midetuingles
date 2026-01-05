@@ -14,6 +14,26 @@ export function generateMetadata({ params }: PageProps): Metadata {
   const detail = LEVEL_DETAILS[levelLabel as Level];
 
   const overrides: Partial<Record<Level, Metadata>> = {
+    A1: {
+      title: 'Test de inglés nivel A1 gratis | Nivel principiante',
+      description:
+        'Haz este test de inglés nivel A1 y descubre si tienes un nivel principiante. Ideal si estás comenzando desde cero.'
+    },
+    A2: {
+      title: 'Test de inglés nivel A2 gratis | Nivel básico',
+      description:
+        'Evalúa tu nivel de inglés A2 con este test gratuito. Pensado para situaciones simples y comunicación básica.'
+    },
+    B1: {
+      title: 'Test de inglés nivel B1 gratis | Nivel intermedio',
+      description:
+        'Haz este test de inglés nivel B1 y descubre si tienes un nivel intermedio. Sin registro y con resultados inmediatos.'
+    },
+    B2: {
+      title: 'Test de inglés nivel B2 gratis | Intermedio alto',
+      description:
+        'Comprueba si tienes nivel B2 de inglés con este test gratuito. Ideal para quienes ya se comunican con soltura.'
+    },
     C1: {
       title: 'Test de inglés nivel C1 gratis | Evalúa tu nivel avanzado',
       description:
